@@ -14,6 +14,4 @@ build:
 
 	abigen --bin=abigenBindings/bin/MondayHaterToken.bin \
 	--abi=abigenBindings/abi/MondayHaterToken.abi \
-	--pkg=token --out=token/token.go
-	
-	abigen --abi=abigenBindings/abi/MondayHaterToken.abi --pkg=token --out=token/token.go
+	--pkg=api --out=api/token.go
