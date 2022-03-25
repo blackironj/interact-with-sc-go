@@ -25,9 +25,12 @@ var (
 				er(err)
 			}
 
-			txOpts, err := auth.GetAccountAuth(client, privateKey)
+			txAuth, err := auth.GetAccountAuth(client, privateKey)
+			if err != nil {
+				er(err)
+			}
 
-			deloyedContractAddress, tx, _, err := api.DeployApi(txOpts, client)
+			deloyedContractAddress, tx, _, err := api.DeployApi(txAuth, client)
 			if err != nil {
 				er(err)
 			}
