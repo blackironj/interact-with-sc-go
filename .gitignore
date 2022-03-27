@@ -133,14 +133,14 @@ fabric.properties
 # node_modules
 node_modules/
 
-# yarn 2 non-zero-installs
+# yarn 2
 .yarn/*
+!.yarn/cache
 !.yarn/patches
-!.yarn/releases
 !.yarn/plugins
+!.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-.pnp.*
 
 # solidity compile & abi build 
 build/
