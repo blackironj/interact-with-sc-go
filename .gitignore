@@ -147,9 +147,7 @@ build/
 abigenBindings/
 
 # binary
-cmd/sc-interactor
-cmd/cmd
-cmd/main
+**/sc-interactor
 
 # Support for Project snippet scope
 
