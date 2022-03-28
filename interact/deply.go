@@ -12,9 +12,6 @@ import (
 )
 
 var (
-	url        string
-	privateKey string
-
 	deployCmd = &cobra.Command{
 		Use:   "deploy",
 		Short: "deploy a contract to network",
@@ -46,7 +43,4 @@ var (
 
 func init() {
 	rootCmd.AddCommand(deployCmd)
-
-	deployCmd.Flags().StringVarP(&url, "url", "u", "", "network url (required)")
-	deployCmd.Flags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract (required)")
 }
