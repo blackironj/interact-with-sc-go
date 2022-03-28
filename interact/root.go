@@ -19,7 +19,7 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract (required)")
+	rootCmd.PersistentFlags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract or generate a transaction (required)")
 	if err := rootCmd.MarkPersistentFlagRequired("privatekey"); err != nil {
 		er(err)
 	}
