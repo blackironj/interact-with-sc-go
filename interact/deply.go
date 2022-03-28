@@ -1,10 +1,9 @@
 package interact
 
 import (
-	"context"
+	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/spf13/cobra"
 
@@ -20,6 +19,10 @@ var (
 		Use:   "deploy",
 		Short: "deploy a contract to network",
 		Run: func(cmd *cobra.Command, args []string) {
+			if url == "" || privateKey == "" {
+				er(errors.New("url & private key must be needed"))
+			}
+
 			client, err := ethclient.Dial(url)
 			if err != nil {
 				er(err)
@@ -35,13 +38,8 @@ var (
 				er(err)
 			}
 
-			_, err = bind.WaitDeployed(context.Background(), client, tx)
-			if err != nil {
-				er(err)
-			}
-
-			fmt.Println("success to deploy contract!")
-			fmt.Println("contract address: ", deloyedContractAddress.Hex())
+			fmt.Println("contract address hex: ", deloyedContractAddress.Hex())
+			fmt.Println("tx hash hex: ", tx.Hash().Hex())
 		},
 	}
 )

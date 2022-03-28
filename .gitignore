@@ -146,6 +146,11 @@ node_modules/
 build/
 abigenBindings/
 
+# binary
+cmd/sc-interactor
+cmd/cmd
+cmd/main
+
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/jetbrains,visualstudiocode
