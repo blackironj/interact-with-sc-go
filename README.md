@@ -5,8 +5,13 @@
 - node v16
 - Burnable wallet address & private key for testing
   > :warning: I would recommand that do not use a real wallet for testing!
-- go > 1.17
-- Install yarn & dependencies
+- go >= 1.17
+- solidity >= 0.8.10
+  - https://docs.soliditylang.org/en/v0.8.0/installing-solidity.html
+- ethereum tool
+  - https://geth.ethereum.org/docs/install-and-build/installing-geth
+  - we need to `abigen` tool
+- Install yarn
   ```sh
   npm install -g yarn
   ```
