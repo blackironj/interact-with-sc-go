@@ -31,6 +31,11 @@ var (
 )
 
 func init() {
+	mintCmd.PersistentFlags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract (required)")
+	if err := mintCmd.MarkPersistentFlagRequired("privatekey"); err != nil {
+		er(err)
+	}
+
 	mintCmd.PersistentFlags().StringVarP(&to, "to", "t", "", "account address to receive token after minting (required)")
 	if err := mintCmd.MarkPersistentFlagRequired("to"); err != nil {
 		er(err)

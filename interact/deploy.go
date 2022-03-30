@@ -42,5 +42,10 @@ var (
 )
 
 func init() {
+	deployCmd.PersistentFlags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract (required)")
+	if err := deployCmd.MarkPersistentFlagRequired("privatekey"); err != nil {
+		er(err)
+	}
+
 	rootCmd.AddCommand(deployCmd)
 }

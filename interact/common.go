@@ -13,6 +13,7 @@ var (
 	amt          string
 	to           string
 	contractAddr string
+	privateKey   string
 )
 
 func getContractInteractor(url, contractAddr, privateKey string) (*api.Api, *bind.TransactOpts) {

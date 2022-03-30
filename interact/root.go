@@ -1,7 +1,6 @@
 package interact
 
 import (
-	"errors"
 	"fmt"
 	"os"
 
@@ -10,7 +9,6 @@ import (
 
 var (
 	url        string
-	privateKey string
 
 	rootCmd = &cobra.Command{
 		Use:   "sc-interactor",
@@ -19,11 +17,6 @@ var (
 )
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract or generate a transaction (required)")
-	if err := rootCmd.MarkPersistentFlagRequired("privatekey"); err != nil {
-		er(err)
-	}
-
 	rootCmd.PersistentFlags().StringVarP(&url, "url", "u", "", "network url (required)")
 	if err := rootCmd.MarkPersistentFlagRequired("url"); err != nil {
 		er(err)
@@ -38,9 +31,5 @@ func er(msg interface{}) {
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		er(err)
-	}
-
-	if privateKey == "" || url == "" {
-		er(errors.New("private key & url must be needed"))
 	}
 }

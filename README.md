@@ -32,6 +32,7 @@
     Available Commands:
         help        help about any command
 
+        balance     account token balance
         deploy      deploy a contract to network
         mint        mint tokens
         burn        burn tokens

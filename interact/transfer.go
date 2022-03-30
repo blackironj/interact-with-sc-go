@@ -27,6 +27,11 @@ var (
 )
 
 func init() {
+	transferCmd.PersistentFlags().StringVarP(&privateKey, "privatekey", "p", "", "private-key to deploy a your contract (required)")
+	if err := transferCmd.MarkPersistentFlagRequired("privatekey"); err != nil {
+		er(err)
+	}
+
 	transferCmd.PersistentFlags().StringVarP(&to, "to", "t", "", "account address to receive token after minting (required)")
 	if err := transferCmd.MarkPersistentFlagRequired("to"); err != nil {
 		er(err)
